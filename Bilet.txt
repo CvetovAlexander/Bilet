@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class main
+{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите количество дней оставшихся до начала концерта и стоимость билета через пробел: ");
+        System.out.println("Осталось дней");
+        var days = (scanner.nextInt());
+        System.out.println("Стоимость");
+        var money = (scanner.nextFloat());
+        float vozvrat_50 = (money * 50)/100;
+        float vozvrat_80 = (money * 80)/100;
+        float vozvrat_100 = (money * 100)/100;
+        if ((days < 0 || days > 50) && (money < 0 || money > 6000)) {
+            System.out.println("введены не корректные данные оставшихся дней и стоимости билета");
+        } else if (days < 0 || days > 50) {
+            System.out.println("введены не корректные данные оставшихся дней");
+        } else if (money < 0 || money > 6000)  {
+            System.out.println("введены не корректные данные стоимости билета");
+        } else if (days >= 0 && days < 3) {
+            System.out.println("Сумма возврата 0 руб.");
+        } else if (days >= 3 && days <= 6) {
+            System.out.println("Сумма возврата "+vozvrat_50+" руб.");
+        }else  if (days >= 7 && days <= 12){
+            System.out.println("Сумма возврата "+vozvrat_80+" руб.");
+        }else if (days > 12 && days <= 50){
+            System.out.println("Сумма возврата "+vozvrat_100+" руб.");
+        }
+    }
+}
